@@ -1,16 +1,9 @@
-import VigenereCipher from "./ciphering-methods/VigenereCipher.mjs";
-import AffineCipher from "./ciphering-methods/affineCipher.mjs";
 import ShiftCipher from "./ciphering-methods/shiftCipher.mjs";
-let word = 'VOTE', keyC = 'D', keyA = 'DB', keyV = 'WISE'
+import alphabet from "./utils/alphabet.mjs";
+let cipherText = "text here";
 
-let ciphertext = ShiftCipher.encrypt(word, keyC)
-console.log(ciphertext)
-console.log(ShiftCipher.decrypt(ciphertext,keyC))
-
-ciphertext = AffineCipher.encrypt(word, keyA)
-console.log(ciphertext)
-console.log(AffineCipher.decrypt(ciphertext,keyA))
-
-ciphertext = VigenereCipher.encrypt(word, keyV)
-console.log(ciphertext)
-console.log(VigenereCipher.decrypt(ciphertext, keyV))
+for (let key = 1; key < alphabet.length; key++) {
+  let plaintext = ShiftCipher.decrypt(cipherText, key);
+  console.log("key", key);
+  console.log(plaintext);
+}
